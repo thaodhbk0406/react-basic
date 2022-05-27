@@ -1,39 +1,39 @@
 import React from "react";
 
-class ChildComponent extends React.Component {
-  /*
-  JSX
-  React.Fragment
-  <></>: fragment
-  State: update data without reload page
-  */
-  state = {
-    firstName='',
-    lastName=''
-  };
+// class ChildComponent extends React.Component {
+//   render() {
+//     let { name, arrJobs } = this.props;
+//     let name = "Torres";
+//     return (
+//       <>
+//         I am child {name}
+//         {arrJobs.map((item, index) => {
+//           return (
+//             <div key={item.id}>
+//               {item.title} - {item.salary}
+//             </div>
+//           );
+//         })}
+//       </>
+//     );
+//     ``;
+//   }
+// }
 
-  handleChangeFirstName = (event) => {
-    setState({
-      firstName: event.target.value
-    })
-  }
-  handleChangeLastName = (event) => {
-    this.setState({
-      lastName: event.target.value
-    })
-  }
-  handleSubmit = () => {
-    event.preventDefault();
-    console.log('Value form: ', this.state)
-  }
-
-  render() {
-    let name = "Torres";
-    return (
-      <>
-        I am child {this.props.name}
-      </>
-    );``
-  }
-}
+const ChildComponent = (props) => {
+  let { name, arrJobs } = props;
+  let name = "Torres";
+  return (
+    <>
+      I am child {name}
+      {arrJobs.map((item, index) => {
+        return (
+          <div key={item.id}>
+            {item.title} - {item.salary}
+          </div>
+        );
+      })}
+    </>
+  );
+};
 export default ChildComponent;
