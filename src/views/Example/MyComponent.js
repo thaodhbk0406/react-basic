@@ -1,4 +1,5 @@
 import React from "react";
+import ChildComponent from "ChildComponent.js" 
 
 class MyComponent extends React.Component {
   /*
@@ -8,39 +9,48 @@ class MyComponent extends React.Component {
   State: update data without reload page
   */
   state = {
-    name: "Torres",
-    role: "FullStack JS",
+    firstName='',
+    lastName=''
   };
 
-  handleChangeState = (event) => {
+  handleChangeFirstName = (event) => {
+    setState({
+      firstName: event.target.value
+    })
+  }
+  handleChangeLastName = (event) => {
     this.setState({
-      name: event.target.value,
-    });
-  };
-
-  handleClickButton = () => {
-    alert("Pls, click me");
-  };
+      lastName: event.target.value
+    })
+  }
+  handleSubmit = () => {
+    event.preventDefault();
+    console.log('Value form: ', this.state)
+  }
 
   render() {
     let name = "Torres";
     return (
       <>
-        <div className="first">
-          <input
-            value={this.state.name}
-            type="text"
-            onChange={(event) => this.handleChangeState(event)}
-          ></input>
-          {console.log(name)}
-          Hello My Component from {this.state.name}
-        </div>
-        <div className="second">My role in project is {this.state.role}</div>
-        <div className="third">
-          <button onClick={() => this.handleClickButton()}>Click Me</button>
-        </div>
+        <form>
+          <label htmlFor="fname">First name:</label>
+          <br />
+          <input type="text" value={this.state.firstName} onChange={(event) => this.handleChangeFirstName(event)} />
+          <br />
+          <label htmlFor="lname">Last name:</label>
+          <br />
+          <input type="text" value={this.state.lastName} onChange={(event) => this.handleChangeLastName(event)} />
+          <br />
+          <br />
+          <input type="submit" onClick={(event) => {this.handleSubmit(event)}} />
+        </form>
+
+        <ChildComponent name={'child one'} />
+        <ChildComponent name={'child two'} />
+        <ChildComponent name={'child three'} />
+
       </>
-    );
+    );``
   }
 }
 export default MyComponent;
