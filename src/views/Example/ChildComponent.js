@@ -22,10 +22,9 @@ import React from "react";
 
 const ChildComponent = (props) => {
   let { name, arrJobs } = props;
-  let name = "Torres";
   return (
     <>
-      I am child {name}
+      I am {name}
       {arrJobs.map((item, index) => {
         return (
           <div key={item.id}>
