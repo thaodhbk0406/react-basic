@@ -9,9 +9,9 @@ class MyComponent extends React.Component {
   State: update data without reload page
   */
   state = {
-    firstName='',
-    lastName='',
-    arrJobs=[{id:'acb1', title: 'Developer', salary: '1200 $'},
+    firstName:'',
+    lastName:'',
+    arrJobs:[{id:'acb1', title: 'Developer', salary: '1200 $'},
     {id:'acb2', title: 'Tester', salary: '1000 $'},
     {id:'acb3', title: 'Architect', salary: '1500 $'},
   ]
@@ -27,7 +27,7 @@ class MyComponent extends React.Component {
       lastName: event.target.value
     })
   }
-  handleSubmit = () => {
+  handleSubmit = (event) => {
     event.preventDefault();
     console.log('Value form: ', this.state)
   }
