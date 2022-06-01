@@ -4,6 +4,14 @@ import MyComponent from "./Example/MyComponent";
 import ListTodo from "./Todos/ListTodo";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Nav from './Nav/Nav'
+import Home from './Example/Home.js'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from "react-router-dom";
 
 /**
  * 2 component types: class component, function cmp(function, arrow)
@@ -14,29 +22,42 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Simple Todo Apps from Torres &amp; Sarah</p>
+    <Router>
+      <div className="App">
 
-        {/* <MyComponent /> */}
-        <ListTodo />
-      </header>
+        <header className="App-header">
+          <Nav />
+          <img src={logo} className="App-logo" alt="logo" />
 
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-      {/* Same as */}
-      <ToastContainer />
-    </div>
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/todos">
+              <ListTodo />
+            </Route>
+            <Route path="/about">
+              <MyComponent />
+            </Route>
+          </Switch>
+
+        </header>
+
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+        {/* Same as */}
+        <ToastContainer />
+      </div>
+    </Router>
   );
 };
 
