@@ -2,17 +2,13 @@ import logo from "./logo.svg";
 import "./App.scss";
 import MyComponent from "./Example/MyComponent";
 import ListTodo from "./Todos/ListTodo";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Nav from './Nav/Nav'
-import Home from './Example/Home.js'
-import ListUser from './Users/ListUser.js'
-import DetailUser from './Users/DetailUser.js'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Nav from "./Nav/Nav";
+import Home from "./Example/Home.js";
+import ListUser from "./Users/ListUser.js";
+import DetailUser from "./Users/DetailUser.js";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 /**
  * 2 component types: class component, function cmp(function, arrow)
@@ -25,7 +21,6 @@ const App = () => {
   return (
     <Router>
       <div className="App">
-
         <header className="App-header">
           <Nav />
           <img src={logo} className="App-logo" alt="logo" />
@@ -46,9 +41,7 @@ const App = () => {
             <Route path="/user/:id">
               <DetailUser />
             </Route>
-
           </Switch>
-
         </header>
 
         <ToastContainer
