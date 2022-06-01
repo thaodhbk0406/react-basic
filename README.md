@@ -4,6 +4,7 @@ If you want return more: we need <React.Fragment>
 function component just use for hook is good
 npm install --save-exact react-toastify@8.0.2
 npm install --save-exact-router-dom@5.3.0
+npm install --save-exact axios@0.21.4
 
 # Getting Started with Create React App
 
