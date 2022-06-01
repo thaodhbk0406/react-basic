@@ -1,6 +1,8 @@
 class ==> className
 Return only one tag html, example: dev
 If you want return more: we need <React.Fragment>
+function component just use for hook is good
+npm install --save-exact react-toastify@8.0.2
 
 # Getting Started with Create React App
 
