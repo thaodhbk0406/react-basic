@@ -1,6 +1,7 @@
 import React from "react";
 // import { withRouter } from "react-router";
 import Color from "../HOC/Color.js";
+import DevLogo from '../../assets/images/DevLogo.jpg';
 
 class Home extends React.Component {
   componentDidMount() {
@@ -10,7 +11,10 @@ class Home extends React.Component {
     // }, 3000)
   }
   render() {
-    return <div>Hello from Home page!</div>;
+    return (<>
+      <div>Hello from Home page!</div>
+      <div><img src={DevLogo} style={{ width: '200px', height: '200px', marginTop: '20px' }} /></div>
+    </>);
   }
 }
 
