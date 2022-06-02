@@ -2,6 +2,7 @@ import React from "react";
 // import { withRouter } from "react-router";
 import Color from "../HOC/Color.js";
 import DevLogo from '../../assets/images/DevLogo.jpg';
+import { connect } from 'react-redux'
 
 class Home extends React.Component {
   componentDidMount() {
@@ -11,6 +12,7 @@ class Home extends React.Component {
     // }, 3000)
   }
   render() {
+    console.log('check props: ', this.props);
     return (<>
       <div>Hello from Home page!</div>
       <div><img src={DevLogo} style={{ width: '200px', height: '200px', marginTop: '20px' }} /></div>
@@ -18,5 +20,11 @@ class Home extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    reduxUsers: state.users
+  }
+}
+
 // export default withRouter(Home);
-export default Color(Home);
+export default connect(mapStateToProps)(Color(Home));

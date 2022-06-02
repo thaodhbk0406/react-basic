@@ -5,6 +5,7 @@ function component just use for hook is good
 npm install --save-exact react-toastify@8.0.2
 npm install --save-exact-react-router-dom@5.3.0
 npm install --save-exact axios@0.21.4
+npm install --save-exact redux@4.1.1 react-redux@7.2.5
 
 # Getting Started with Create React App
 
