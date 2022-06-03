@@ -11,11 +11,31 @@ class Home extends React.Component {
     //     this.props.history.push('/todos');
     // }, 3000)
   }
+
+  handleDeleteUser = (user) => {
+    this.props.deleteReduxUser(user);
+  }
+
+  handleCreateNewUser = () => {
+    this.props.createNewUser();
+  }
   render() {
-    console.log('check props: ', this.props);
+
+    let reduxUsers = this.props.reduxUsers;
+    console.log('check props: ', reduxUsers);
     return (<>
       <div>Hello from Home page!</div>
-      <div><img src={DevLogo} style={{ width: '200px', height: '200px', marginTop: '20px' }} /></div>
+      <div><img src={DevLogo} style={{ width: '200px', height: '200px', marginTop: '20px' }} alt={DevLogo} /></div>
+      <div>
+        {reduxUsers && reduxUsers.length > 0 &&
+          reduxUsers.map((user, index) => {
+            return (
+              <div key={user.id}>{index + 1} - {user.name} <button onClick={() => this.handleDeleteUser(user)}>Delete</button></div>
+            )
+          })
+        }
+      </div>
+      <div><button onClick={() => this.handleCreateNewUser()}>Create new User</button></div>
     </>);
   }
 }
@@ -26,5 +46,16 @@ const mapStateToProps = (state) => {
   }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteReduxUser: (userDelete) => dispatch({
+      type: 'USER_DELETE', payload: userDelete,
+    }),
+    createNewUser: () => dispatch({
+      type: 'CREATE_USER',
+    })
+  }
+}
+
 // export default withRouter(Home);
-export default connect(mapStateToProps)(Color(Home));
+export default connect(mapStateToProps, mapDispatchToProps)(Color(Home));
